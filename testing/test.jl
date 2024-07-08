@@ -2,9 +2,7 @@ using DataFrames
 include("../src/EconAPI.jl")
 using .EconAPI
 
-if ENV["USER"] == "ryangilland"
-    dir = "/home/ryangilland/Projects/EconAPI.jl/"
-end
+dir = "/home/" * ENV["USER"] * "/Projects/EconAPI.jl/"
 
 key = read(dir * "testing/census_api_key.txt", String)
 capi = CensusAPI(key)
