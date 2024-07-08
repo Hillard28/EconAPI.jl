@@ -13,9 +13,16 @@ function get_data(
     variables="NAME",
     geographical_level="county",
     geographies="*"
-    )
+)
 
-    uri = "https://api.census.gov/data/" * string(year) * "/" * source * "/" * product * "?" * "get=" * variables * "&for=" * geographical_level * ":" * geographies * "&key=" * host.key
+    uri = "https://api.census.gov/data/" *
+          string(year) * "/" *
+          source * "/" *
+          product * "?" * "get=" *
+          variables * "&for=" *
+          geographical_level * ":" *
+          geographies * "&key=" *
+          host.key
 
     json = HTTP.get(uri)
     json = JSON3.read(json.body)
